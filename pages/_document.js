@@ -12,6 +12,7 @@ export default class MyDocument extends Document {
        <Head>
         <title>CryptoPrice</title>
         <meta name="description" content="Current price of Bitcoin / Ethereum" />
+        <meta name="viewport" content="width=device-width, minimum-scale=1.0" />
         <link rel="apple-touch-icon" sizes="180x180" href="/static/apple-touch-icon.png" />
         <link rel="icon" type="image/png" sizes="32x32" href="/static/favicon-32x32.png" />
         <link rel="icon" type="image/png" sizes="16x16" href="/static/favicon-16x16.png" />
