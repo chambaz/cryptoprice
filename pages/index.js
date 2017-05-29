@@ -70,7 +70,7 @@ export default class CryptoPrice extends React.Component {
               transition: '0.8s ease-out'
             }}
             duration={1000}
-            formatValue={n => formatCurrency(n)}
+            formatValue={n => `$${formatCurrency(n)}`}
           />
         </h1>
         <h1
@@ -81,7 +81,7 @@ export default class CryptoPrice extends React.Component {
               transition: '0.8s ease-out'
             }}
             duration={1000}
-            formatValue={n => formatCurrency(n)}
+            formatValue={n => `$${formatCurrency(n)}`}
           />
         </h1>
       </div>
