@@ -1,7 +1,7 @@
 {
   "name": "cryptoprice",
-  "version": "0.0.0",
-  "description": "Current price of popular crypto currencies",
+  "version": "1.0.0",
+  "description": "Current price of Bitcoin / Ethereum",
   "main": "index.js",
   "scripts": {
     "dev": "next",
@@ -11,9 +11,13 @@
   "author": "Adam Chambers <adammchambers@gmail.com>",
   "license": "ISC",
   "dependencies": {
-    "next": "^3.0.0-beta6",
-    "react": "^15.5.4",
-    "react-dom": "^15.5.4"
+    "cookie": "^0.3.1",
+    "format-currency": "^1.0.0",
+    "isomorphic-fetch": "^2.2.1",
+    "next": "latest",
+    "next-cookies": "^1.0.1",
+    "react": "^15.4.2",
+    "react-dom": "^15.4.2"
   },
   "devDependencies": {
     "eslint": "^2.0.0",

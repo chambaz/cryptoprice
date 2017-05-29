@@ -1,0 +1,52 @@
+body {
+  font-family: 'Montserrat', sans-serif;
+  margin: 0;
+}
+
+.canvas {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  left: 0;
+  position: absolute;
+  top: 0;
+  width: 100%;
+}
+
+.nav {
+  align-items: center;
+  display: flex;
+  justify-content: center;
+  margin: 0;
+  padding: 0;
+  position: relative;
+  width: 100%;
+  z-index: 2;
+}
+
+.nav__item {
+  display: block;
+  padding: 2.5em;
+}
+
+.nav__link {
+  color: #000;
+  display: block;
+  text-decoration: none;
+}
+
+.nav__link--active {
+  border-bottom: solid 1px #000;
+}
+
+.price {
+  align-items: center;
+  font-size: 10em;
+  height: 100%;
+  justify-content: center;
+  margin: 0;
+  position: relative;
+  transform: translateY(-0.5em);
+  width: 100%;
+  z-index: 1;
+}
