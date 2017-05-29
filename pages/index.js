@@ -19,10 +19,21 @@ export default class CryptoPrice extends React.Component {
       eth: this.props.eth,
       show: 'eth'
     }
+
+    setInterval(this.update.bind(this), 5000)
   }
 
   show(type) {
     this.setState({show: type})
+  }
+
+  async update() {
+    const res = await fetch('https://min-api.cryptocompare.com/data/pricemulti?fsyms=BTC,ETH&tsyms=USD')
+    const json = await res.json()
+    this.setState({
+      btc: json.BTC.USD,
+      eth: json.ETH.USD
+    })
   }
 
   render () {
