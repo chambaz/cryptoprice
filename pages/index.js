@@ -1,4 +1,5 @@
 import React from 'react'
+import formatCurrency from 'format-currency'
 import 'isomorphic-fetch'
 
 export default class CryptoPrice extends React.Component {
@@ -15,8 +16,8 @@ export default class CryptoPrice extends React.Component {
   constructor(props) {
     super(props)
     this.state = {
-      btc: this.props.btc,
-      eth: this.props.eth,
+      btc: formatCurrency(this.props.btc),
+      eth: formatCurrency(this.props.eth),
       show: 'eth'
     }
   }
@@ -33,8 +34,8 @@ export default class CryptoPrice extends React.Component {
     const res = await fetch('https://min-api.cryptocompare.com/data/pricemulti?fsyms=BTC,ETH&tsyms=USD')
     const json = await res.json()
     this.setState({
-      btc: json.BTC.USD,
-      eth: json.ETH.USD
+      btc: formatCurrency(json.BTC.USD),
+      eth: formatCurrency(json.ETH.USD)
     })
   }
 
