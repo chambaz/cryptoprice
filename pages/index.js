@@ -1,4 +1,5 @@
 import React from 'react'
+import AnimatedNumber from 'react-animated-number'
 import formatCurrency from 'format-currency'
 import cookies from 'next-cookies'
 import 'isomorphic-fetch'
@@ -18,7 +19,7 @@ export default class CryptoPrice extends React.Component {
   constructor(props) {
     super(props)
     this.state = {
-      btc: formatCurrency(this.props.btc),
+      btc: Number(this.props.btc),
       eth: formatCurrency(this.props.eth),
       show: this.props.show
     }
@@ -37,7 +38,7 @@ export default class CryptoPrice extends React.Component {
     const res = await fetch('https://min-api.cryptocompare.com/data/pricemulti?fsyms=BTC,ETH&tsyms=USD')
     const json = await res.json()
     this.setState({
-      btc: formatCurrency(json.BTC.USD),
+      btc: Number(json.BTC.USD),
       eth: formatCurrency(json.ETH.USD)
     })
   }
@@ -64,12 +65,24 @@ export default class CryptoPrice extends React.Component {
         <h1
           className="price"
           style={{display: (this.state.show === 'btc' ? 'flex' : 'none')}}>
-          ${this.state.btc}
+          <AnimatedNumber component="text" value={this.state.btc}
+            style={{
+              transition: '0.8s ease-out'
+            }}
+            duration={1000}
+            formatValue={n => formatCurrency(n)}
+          />
         </h1>
         <h1
           className="price"
           style={{display: (this.state.show === 'eth' ? 'flex' : 'none')}}>
-          ${this.state.eth}
+          <AnimatedNumber component="text" value={this.state.eth}
+            style={{
+              transition: '0.8s ease-out'
+            }}
+            duration={1000}
+            formatValue={n => formatCurrency(n)}
+          />
         </h1>
       </div>
     )
