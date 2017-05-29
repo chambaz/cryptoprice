@@ -19,7 +19,9 @@ export default class CryptoPrice extends React.Component {
       eth: this.props.eth,
       show: 'eth'
     }
+  }
 
+  componentDidMount() {
     setInterval(this.update.bind(this), 5000)
   }
 
@@ -38,13 +40,33 @@ export default class CryptoPrice extends React.Component {
 
   render () {
     return (
-      <div>
-        <ul>
-          <li><a onClick={e => { e.preventDefault(); this.show('btc') }} href="#">Bitcoin</a></li>
-          <li><a onClick={e => { e.preventDefault(); this.show('eth') }} href="#">Ethereum</a> </li>
+      <div className="canvas">
+        <ul className="nav">
+          <li className="nav__item">
+            <a
+              className={this.state.show === 'btc' ? 'nav__link nav__link--active' : 'nav__link'}
+              onClick={e => { e.preventDefault(); this.show('btc') }} href="#">
+              Bitcoin
+            </a>
+          </li>
+          <li className="nav__item">
+            <a
+              className={this.state.show === 'eth' ? 'nav__link nav__link--active' : 'nav__link'}
+              onClick={e => { e.preventDefault(); this.show('eth') }} href="#">
+              Ethereum
+            </a>
+          </li>
         </ul>
-        <h1 style={{display: (this.state.show === 'btc' ? 'block' : 'none')}}>{this.state.btc}</h1>
-        <h1 style={{display: (this.state.show === 'eth' ? 'block' : 'none')}}>{this.state.eth}</h1>
+        <h1
+          className="price"
+          style={{display: (this.state.show === 'btc' ? 'flex' : 'none')}}>
+          ${this.state.btc}
+        </h1>
+        <h1
+          className="price"
+          style={{display: (this.state.show === 'eth' ? 'flex' : 'none')}}>
+          ${this.state.eth}
+        </h1>
       </div>
     )
   }
