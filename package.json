@@ -1,0 +1,22 @@
+{
+  "name": "cryptoprice",
+  "version": "0.0.0",
+  "description": "Current price of popular crypto currencies",
+  "main": "index.js",
+  "scripts": {
+    "dev": "next",
+    "build": "next build",
+    "start": "next start"
+  },
+  "author": "Adam Chambers <adammchambers@gmail.com>",
+  "license": "ISC",
+  "dependencies": {
+    "next": "^3.0.0-beta6",
+    "react": "^15.5.4",
+    "react-dom": "^15.5.4"
+  },
+  "devDependencies": {
+    "eslint": "^2.0.0",
+    "eslint-plugin-react": "^6.10.0"
+  }
+}
