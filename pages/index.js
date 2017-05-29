@@ -22,7 +22,7 @@ export default class CryptoPrice extends React.Component {
   }
 
   componentDidMount() {
-    setInterval(this.update.bind(this), 5000)
+    setInterval(this.update.bind(this), 2000)
   }
 
   show(type) {
