@@ -1,15 +1,17 @@
 import React from 'react'
 import formatCurrency from 'format-currency'
+import cookies from 'next-cookies'
 import 'isomorphic-fetch'
 
 export default class CryptoPrice extends React.Component {
-  static async getInitialProps () {
+  static async getInitialProps (ctx) {
     const res = await fetch('https://min-api.cryptocompare.com/data/pricemulti?fsyms=BTC,ETH&tsyms=USD')
     const json = await res.json()
+    const cooks = cookies(ctx)
     return {
       btc: json.BTC.USD,
       eth: json.ETH.USD,
-      show: 'eth'
+      show: cooks.show || 'btc'
     }
   }
 
@@ -18,7 +20,7 @@ export default class CryptoPrice extends React.Component {
     this.state = {
       btc: formatCurrency(this.props.btc),
       eth: formatCurrency(this.props.eth),
-      show: 'eth'
+      show: this.props.show
     }
   }
 
@@ -28,6 +30,7 @@ export default class CryptoPrice extends React.Component {
 
   show(type) {
     this.setState({show: type})
+    document.cookie = `show=${type}`
   }
 
   async update() {
