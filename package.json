@@ -1,7 +1,7 @@
 {
   "name": "cryptoprice",
   "version": "0.0.0",
-  "description": "Current price of popular crypto currencies",
+  "description": "Current price of Bitcoin / Ethereum",
   "main": "index.js",
   "scripts": {
     "dev": "next",
